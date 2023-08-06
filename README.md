@@ -1,34 +1,104 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Product Search
 
-## Getting Started
+Fullstack Application! By combining the API with backend access control and a websocket server, I have developed a platform that allows users to receive and send products in a simple way, using only the scanning of a QR code. The experience is enhanced with real-time notifications via socket io, which enable users to accept or decline the sending or receiving of a scanned item.
 
-First, run the development server:
+Additionally, the application features user login and registration capabilities, with password encryption and token generation via JWT. The entire product inventory is stored in the MongoDB database, ensuring data persistence.
+
+This platform represents a proof of concept with the implementation of QR code reading and generation linked to a set of product attributes, and it integrates the Next.js frontend, Express.js backend along with socket.io, and the MongoDB Atlas database.
+
+The deployment of this application can be found at the following address: [Deploy-frontend](https://qr-code-reader-alpha.vercel.app/).
+
+[The first access can be a bit slow due to the backend hosted on Render's free server.](https://render.com/).
+
+The link to the backend repository that serves this application can be found at the following address: [Repo-backend](https://github.com/Megas-MDN/qr-backend). As for the backend deployment link, it can be accessed at the following address: [Deploy-backend](https://qr-backend-cdo9.onrender.com/).
+
+<hr>
+
+## Application flow
+
+![application-running](https://i.imgur.com/8XsAxnN.gif)
+
+Firstly, when accessing the application's homepage ( / ), a login screen is displayed, allowing the user to enter their email and password if they already have an account, or click on "register" to create a new account.
+
+After logging in, on the main screen, users can view the inventory, perform searches for words contained in the name or description of an item in the inventory, create a new product, and scan an external product by reading the QR code. In the product details, there is an option to view the history of locations where the product has been and delete the item from the inventory if necessary.
+
+In the top bar of the application, there is also a logout button to end the session.
+
+Additionally, each product has a combo dropdown that allows it to be sent to another user. Selecting this option triggers a notification to the recipient, requesting authorization to receive the product.
+
+Likewise, clicking on the QR code expands it, enabling the user to read the code. The product information is retrieved from the database, and an option to request the product appears. In this case, the user who has the product in their inventory can authorize or decline the product's shipment.
+
+<hr>
+
+## 🧐 Features
+
+- **Login and user registration.**
+- **Product creation.**
+- **Reading products via QR-code and requesting the scanned product.**
+- **Notification of product request via websocket.**
+- **Sending a product via dropdown.**
+- **Notification of receiving a product via websocket.**
+- **Product search within the inventory.**
+- **Product logs.**
+- **Delete a product.**
+- **QR-code reading with the option to choose the camera (front or back).**
+<hr>
+
+## 🛠️ Install project
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/Megas-MDN/qr-code-reader
+```
+
+2. Enter the cloned folder
+
+```bash
+cd qr-code-reader
+```
+
+3. Install the dependencies
+
+```bash
+npm install
+```
+
+4. Build the project
+
+```bash
+npm start
+```
+
+5. Run in development mode
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<hr>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📦 Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To run this project, you will need to add the following environment variables to your .env file.
 
-## Learn More
+`URL_BASE_BACK`=Endpoint to acess the backend.
 
-To learn more about Next.js, take a look at the following resources:
+🌟 Ready to use!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<hr>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 💻 Built with:
 
-## Deploy on Vercel
+- [javascript](https://www.w3schools.com/js/js_es6.asp) : Language
+- [Nextjs](https://nextjs.org/) : Framework
+- [Socket.io](https://socket.io/) : Bidirectional and low-latency communication
+- [JWT](https://jwt.io/) : Token generate
+- [Mongo DB Atlas](https://www.mongodb.com/atlas/database) : Data base
+- [Vercel](https://vercel.com/) : Deploy developer mode frontend
+- [Render](https://render.com/) : Deploy developer mode backend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<hr>
+<p align="center">
+Developed with ❤️ by Megas
+</p>

@@ -20,6 +20,7 @@ const Hero = ({ baseUrl }) => {
       state.setUserName,
     ]);
 
+  if (!token) return router.push('/login');
   const fetchAllHost = async () => {
     const res = await fetch(baseUrl + '/host/all', {
       headers: {
@@ -34,7 +35,6 @@ const Hero = ({ baseUrl }) => {
   };
 
   const fetchRole = async (tkn) => {
-    if (!tkn) return router.push('/login');
     try {
       const res = await fetch(baseUrl + '/role', {
         headers: {
