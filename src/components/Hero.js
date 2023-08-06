@@ -8,7 +8,6 @@ import Host from './Host';
 const Hero = ({ baseUrl }) => {
   const router = useRouter();
   const [listHosts, setListHosts] = useState([]);
-  const [roleState, setRoleState] = useState('');
   const [user, setUser] = useState('');
   const [token, role, setRole, setToken, setUserId, userName, setUserName] =
     useZusStore((state) => [
@@ -67,16 +66,6 @@ const Hero = ({ baseUrl }) => {
   }, []);
 
   useEffect(() => {
-    if (role === 'transfer') {
-      setRoleState('transfer');
-    } else if (role === 'host') {
-      setRoleState('host');
-    } else {
-      setRoleState('');
-    }
-  }, [role]);
-
-  useEffect(() => {
     setUser(userName);
   }, [userName]);
 
@@ -99,12 +88,7 @@ const Hero = ({ baseUrl }) => {
         </button>
       </header>
       <main className='flex-1 w-screen flex flex-col items-center max-w-[1000px] mx-auto h-[90%]'>
-        {roleState === 'host' && (
-          <Host {...{ token, baseUrl, listHosts, user }} />
-        )}
-        {roleState === 'transfer' && (
-          <Transfer {...{ token, baseUrl, listHosts }} />
-        )}
+        <Host {...{ token, baseUrl, listHosts, user }} />
       </main>
       <footer className='w-screen p-3 border fixed bg-white bottom-0 shadow'>
         CopyRight
