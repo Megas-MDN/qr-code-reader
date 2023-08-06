@@ -18,6 +18,7 @@ import CardCheckout from './CardCheckout';
 import CardCheckin from './CardCheckin';
 
 const Host = ({ token, baseUrl, listHosts, user }) => {
+  const socket = io(baseUrl);
   const userId = useZusStore((state) => state._id);
   const setToken = useZusStore((state) => state.setToken);
   const setUserId = useZusStore((state) => state.setUserId);
@@ -37,11 +38,6 @@ const Host = ({ token, baseUrl, listHosts, user }) => {
   const [search, setSearch] = useState('');
   const [cam, setCam] = useState('environment');
   const [prodScann, setProdScann] = useState({});
-  const [socket, setSocket] = useState({
-    on: () => null,
-    id: null,
-    emit: () => null,
-  });
 
   const handleScan = (scan) => {
     if (scan) {
@@ -127,7 +123,6 @@ const Host = ({ token, baseUrl, listHosts, user }) => {
 
   useEffect(() => {
     fetchData();
-    setSocket(io(baseUrl));
     console.log(baseUrl);
     return () => {
       socket.emit('disconnect', () => {
