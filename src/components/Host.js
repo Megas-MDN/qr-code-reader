@@ -154,7 +154,8 @@ const Host = ({ token, baseUrl, listHosts, user }) => {
     socket.on('request-checkin-' + userId, (payload) => {
       // console.log(payload);
       setModalCheckin(true);
-      setCheckinContainer((prev) => [...prev, payload]);
+      const set = new Set([...checkinContainer, payload]);
+      setCheckinContainer(Array.from(set));
     });
   }, [socket]);
 
