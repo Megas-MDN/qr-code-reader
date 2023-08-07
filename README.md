@@ -16,7 +16,7 @@ The link to the backend repository that serves this application can be found at 
 
 ## Application flow
 
-![application-running](https://i.imgur.com/8XsAxnN.gif)
+![application-running](https://i.imgur.com/cLgHeV9.gifv)
 
 Firstly, when accessing the application's homepage ( / ), a login screen is displayed, allowing the user to enter their email and password if they already have an account, or click on "register" to create a new account.
 
@@ -27,6 +27,8 @@ In the top bar of the application, there is also a logout button to end the sess
 Additionally, each product has a combo dropdown that allows it to be sent to another user. Selecting this option triggers a notification to the recipient, requesting authorization to receive the product.
 
 Likewise, clicking on the QR code expands it, enabling the user to read the code. The product information is retrieved from the database, and an option to request the product appears. In this case, the user who has the product in their inventory can authorize or decline the product's shipment.
+
+![application-running-2](https://i.imgur.com/Vgmgsm9.gifv)
 
 <hr>
 
