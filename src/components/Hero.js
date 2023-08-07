@@ -20,7 +20,6 @@ const Hero = ({ baseUrl }) => {
       state.setUserName,
     ]);
 
-  if (!token) return router.push('/login');
   const fetchAllHost = async () => {
     const res = await fetch(baseUrl + '/host/all', {
       headers: {
@@ -62,6 +61,7 @@ const Hero = ({ baseUrl }) => {
   };
 
   useEffect(() => {
+    if (!token) return router.push('/login');
     fetchRole(token);
   }, []);
 

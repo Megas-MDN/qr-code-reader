@@ -1,4 +1,4 @@
-# Project Product Search
+# Project QR-code products
 
 Fullstack Application! By combining the API with backend access control and a websocket server, I have developed a platform that allows users to receive and send products in a simple way, using only the scanning of a QR code. The experience is enhanced with real-time notifications via socket io, which enable users to accept or decline the sending or receiving of a scanned item.
 

@@ -125,9 +125,7 @@ const Host = ({ token, baseUrl, listHosts, user }) => {
     fetchData();
     console.log(baseUrl);
     return () => {
-      socket.emit('disconnect', () => {
-        console.log(socket.id, 'Exit'); // undefined
-      });
+      socket.disconnect();
     };
   }, []);
 
