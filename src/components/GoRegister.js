@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useZusStore } from '@/store/store';
+import Loading from '@/Loading';
 
 const GoRegister = ({ baseUrl }) => {
   const router = useRouter();
@@ -18,6 +19,13 @@ const GoRegister = ({ baseUrl }) => {
   const [cep, setCep] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [placeholder, setPlaceholder] = useState('user-email@email.com');
+
+  //------------- Disabled
+  useEffect(() => {
+    router.push('/login');
+  }, []);
+  return <Loading />;
+  //--------------
 
   const handleRegister = async () => {
     try {
